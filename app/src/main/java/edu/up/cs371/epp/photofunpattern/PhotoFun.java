@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.graphics.Bitmap;
         import android.graphics.drawable.BitmapDrawable;
-        import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.ImageView;
         import android.widget.Button;
         import android.view.View;
 
@@ -22,7 +23,7 @@ public class PhotoFun extends AppCompatActivity {
     // Image resources
     private Bitmap myOriginalBmp;
     private ImageView myNewImageView;
-
+    private EditText myNewTextView;
     /*
     * onCreate This constructor lays out the user interface, initializes the
     * original image and links buttons to their actions.
@@ -59,6 +60,8 @@ public class PhotoFun extends AppCompatActivity {
         public void onClick(View button) {
             GrayFilter filter = new GrayFilter();
             myNewImageView.setImageBitmap(filter.apply(myOriginalBmp));
+            myNewTextView = (EditText) findViewById(R.id.editText3);
+            myNewTextView.setText("greyscale");
         }
     }
 
@@ -72,6 +75,8 @@ public class PhotoFun extends AppCompatActivity {
         public void onClick(View button) {
             BrightnessFilter filter = new BrightnessFilter();
             myNewImageView.setImageBitmap(filter.apply(myOriginalBmp));
+            myNewTextView = (EditText) findViewById(R.id.editText3);
+            myNewTextView.setText("brightened");
         }
     }
 }
